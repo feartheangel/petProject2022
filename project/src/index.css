@@ -14,9 +14,6 @@ ul[class],
 ol[class] {
   padding: 0;
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 /* Убираем внешние отступы */
 body,
