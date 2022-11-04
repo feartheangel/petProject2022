@@ -1,0 +1,11 @@
+.wrapper {
+  @apply text-center;
+
+  p {
+    @apply text-sm mt-3;
+  }
+
+  p:first-child {
+    @apply text-4xl;
+  }
+}

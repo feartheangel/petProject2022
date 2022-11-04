@@ -35,7 +35,7 @@ dd {
 
 /* Выставляем основные настройки по-умолчанию для body */
 body {
-  height: calc(100vh - 10px);
+  min-height: 100vh;
   background: #181818;
   color: #d2d2d2ff;
   scroll-behavior: smooth;

@@ -1,10 +1,16 @@
 import React from 'react'
-import styles from './App.module.scss'
+import { Route, Routes } from 'react-router-dom'
+import styles from './app.module.scss'
+import { Content } from './components/landingPage/index'
+import { NotFound } from './components/basic/index'
 
 function App() {
   return (
     <div className={styles.app}>
-      <p>test text</p>
+      <Routes>
+        <Route path='*' element={<NotFound />} />
+        <Route path='/' element={<Content />} />
+      </Routes>
     </div>
   )
 }
