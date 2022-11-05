@@ -1,0 +1,16 @@
+.wrapper {
+  @apply flex justify-between items-center p-4 pr-6;
+
+  img {
+    @apply pl-7;
+    width: 123px;
+    height: 24px;
+  }
+  .links {
+    @apply text-lg mr-5 ml-5;
+
+    &:hover {
+      color: #24b47e;
+    }
+  }
+}
