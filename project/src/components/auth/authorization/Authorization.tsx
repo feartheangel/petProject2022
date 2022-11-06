@@ -162,7 +162,7 @@ const Authorization = () => {
                 </label>
               </div>
               <a
-                href='#!'
+                href='#'
                 className='text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out'
               >
                 Забыли пароль?
@@ -194,7 +194,7 @@ const Authorization = () => {
             <p className='text-gray-800 mt-6 text-center'>
               Not a member?{' '}
               <a
-                href='#!'
+                href='#'
                 className='text-blue-600 hover:text-blue-700 focus:text-blue-700 transition duration-200 ease-in-out'
               >
                 Register
