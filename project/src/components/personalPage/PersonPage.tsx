@@ -5,7 +5,9 @@ const PersonPage = () => {
   return (
     <div>
       <HeaderPersonPage />
-      <div>ЛИЧНЫЙ КАБИНЕТ</div>
+      <div>
+        <div>ЛИЧНЫЙ КАБИНЕТ</div>
+      </div>
       <Footer />
     </div>
   )
