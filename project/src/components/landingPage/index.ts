@@ -1,2 +1,6 @@
 export { default as Content } from './Content'
 export { default as Landing } from './landing/Landing'
+export { default as IconOne } from '../../assets/images/langingPage/iconOne.svg'
+export { default as imgExemplary } from '../../assets/images/langingPage/imgExemplary.svg'
+export { default as imgExemplaryTwo } from '../../assets/images/langingPage/imgExemplaryTwo.jpg'
+export { default as imgExemplaryThree } from '../../assets/images/langingPage/imgExemplaryThree.svg'
