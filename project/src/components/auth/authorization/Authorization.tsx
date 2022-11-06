@@ -1,14 +1,13 @@
 import React from 'react'
 import { Header } from '../../basic'
 import { FieldValues, useForm } from 'react-hook-form'
-import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../../utils/reactTokenAuth'
+import { getAuth } from '../../../api/Auth'
 
 const Authorization = () => {
   const navigate = useNavigate()
-  const backEnd = process.env.REACT_APP_BACKEND_URL
 
   type FormValues = {
     companyCode: string
@@ -20,7 +19,7 @@ const Authorization = () => {
 
   const loginAuthClick = async (data: FieldValues) => {
     try {
-      const response = await axios.post(`${backEnd}/v1/api/user/login`, data)
+      const response = await getAuth(data)
       login(response.data)
       toast.success('Авторизация прошла успешно!')
       navigate('/personal/profile')
