@@ -1,51 +1,35 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Header } from '../../basic'
 import { FieldValues, useForm } from 'react-hook-form'
-import axios from 'axios'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../../utils/reactTokenAuth'
+import { getAuth } from '../../../api/Auth'
 
 const Authorization = () => {
   const navigate = useNavigate()
-  const backEnd = process.env.REACT_APP_BACKEND_URL
-  const [isLogged, setIsLogged] = useState<boolean>()
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm()
+  type FormValues = {
+    companyCode: string
+    username: string
+    password: string
+  }
+
+  const { register, handleSubmit } = useForm<FormValues>({ mode: 'all' })
 
   const loginAuthClick = async (data: FieldValues) => {
-    // const formData = new FormData()
-    // formData.append('compName', data.compName)
-    // formData.append('username', data.email)
-    // formData.append('password', data.password)
-    // getAuth(formData)
-    //   .then((response: AxiosResponse<AuthResponse>) => {
-    //     toast.success('Авторизация прошла успешно')
-    //     navigate('/')
-    //     login(response.data)
-    //   })
-    //   .catch((error) => {
-    //     toast.error(error.message)
-    //   })
     try {
-      const response = await axios.post(`${backEnd}/v1/api/user/login`, data)
-      setIsLogged(true)
+      const response = await getAuth(data)
       login(response.data)
-      toast.success('Авторизация прошла успешно')
-      navigate('/')
+      toast.success('Авторизация прошла успешно!')
+      navigate('/personal/profile')
     } catch (error: any) {
       toast.error(error.message)
-    } finally {
-      const go = 'go'
     }
   }
 
   return (
-    <div className='flex flex-col w-full'>
+    <div className='flex flex-col w-full h-full'>
       <Header />
       <div className='flex w-full h-full justify-center items-center'>
         <div className='block p-6 rounded-lg shadow-lg bg-white max-w-sm'>
@@ -58,14 +42,16 @@ const Authorization = () => {
                 {...register('companyCode', {
                   required: 'Поле не может быть пустым!',
                   maxLength: {
-                    value: 100,
+                    value: 10,
                     message: 'Максимум 100 символов'
                   }
                 })}
                 maxLength={10}
+                required
                 type='text'
                 className='form-control
         block
+        relative
         w-full
         px-3
         py-1.5
@@ -92,14 +78,16 @@ const Authorization = () => {
                 {...register('username', {
                   required: 'Поле не может быть пустым!',
                   maxLength: {
-                    value: 100,
-                    message: 'Максимум 100 символов'
+                    value: 15,
+                    message: 'Максимум 20 символов'
                   }
                 })}
-                maxLength={30}
+                maxLength={15}
                 type='email'
+                required
                 className='form-control
         block
+        relative
         w-full
         px-3
         py-1.5
@@ -126,11 +114,12 @@ const Authorization = () => {
                 {...register('password', {
                   required: 'Поле не может быть пустым!',
                   maxLength: {
-                    value: 100,
-                    message: 'Максимум 100 символов'
+                    value: 15,
+                    message: 'Максимум 15 символов'
                   }
                 })}
-                maxLength={20}
+                maxLength={15}
+                required
                 type='password'
                 className='form-control block
         w-full
@@ -189,7 +178,7 @@ const Authorization = () => {
       duration-150
       ease-in-out'
             >
-              Sign in
+              Войти
             </button>
             <p className='text-gray-800 mt-6 text-center'>
               Not a member?{' '}
