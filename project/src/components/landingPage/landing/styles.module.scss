@@ -1,4 +1,4 @@
-.imgExemplary {
+.img_exemplary {
   @apply ml-10;
   width: 700px;
   height: 500px;
@@ -7,6 +7,7 @@
   border-radius: 4px;
   padding: 7px 11px;
   margin-bottom: 17px;
+  margin-right: 2px;
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
@@ -15,4 +16,20 @@
 .group_btn:hover {
   background: #2a2a2a;
   color: #ffffff;
+}
+.group_btn_active {
+  border-radius: 4px;
+  padding: 7px 11px;
+  margin-bottom: 17px;
+  margin-right: 2px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  background: #2a2a2a;
+  color: #ffffff;
+}
+.slide_img {
+  width: 560px;
+  height: 360px;
+  border-radius: 40px;
 }
